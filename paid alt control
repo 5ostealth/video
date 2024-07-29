@@ -91,19 +91,33 @@ if getgenv().AutoRender == true then
 	UserSettings().GameSettings.MasterVolume = 0
 
     
+-- Ensure this script is a LocalScript, and it's placed in a location where it runs for the local player
+local playersData = {
+    {Name = "SDHC", Wallet = 15314332, ControlVersion = "v1.0"},
+    {Name = "4d9c5", Wallet = 40362792, ControlVersion = "v1.0"},
+    {Name = "PEPSIDHC3", Wallet = 14313281, ControlVersion = "v1.0"},
+    {Name = "bloodmoon780943", Wallet = 19300726, ControlVersion = "v1.0"},
+    {Name = "t650zg0h1ka", Wallet = 32558956, ControlVersion = "v1.0"},
+    {Name = "xavierquintillaofficial", Wallet = 144041653, ControlVersion = "v1.0"},
+    {Name = "toxicmercuryquest007", Wallet = 13754377, ControlVersion = "v1.0"},
+    {Name = "Distenedadx", Wallet = 151421574, ControlVersion = "v1.0"},
+    {Name = "VtuhDesiredex", Wallet = 16073333, ControlVersion = "v1.0"},
+}
+
+-- Ensure you use a LocalScript inside StarterPlayerScripts or StarterGui
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
 for i, player in ipairs(playersData) do
     local frame = Instance.new("Frame")
-    frame.Size = UDim2.new(0.2, 0, 0.2, 0)
+    frame.Size = UDim2.new(0.2, 0, 0.1, 0)
     frame.Position = UDim2.new(0, (i-1) * 0.22, 0, 0)  -- Adjust position to avoid overlap
-    frame.BackgroundColor3 = Color3.new(0, 0, 0)
+    frame.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
     frame.BorderSizePixel = 2
     frame.Parent = screenGui
     
     local nameLabel = Instance.new("TextLabel")
-    nameLabel.Size = UDim2.new(1, 0, 0.2, 0)
+    nameLabel.Size = UDim2.new(1, 0, 0.3, 0)
     nameLabel.Position = UDim2.new(0, 0, 0, 0)
     nameLabel.Text = player.Name
     nameLabel.TextColor3 = Color3.new(1, 1, 1)
@@ -111,16 +125,16 @@ for i, player in ipairs(playersData) do
     nameLabel.Parent = frame
     
     local walletLabel = Instance.new("TextLabel")
-    walletLabel.Size = UDim2.new(1, 0, 0.2, 0)
-    walletLabel.Position = UDim2.new(0, 0, 0.2, 0)
+    walletLabel.Size = UDim2.new(1, 0, 0.3, 0)
+    walletLabel.Position = UDim2.new(0, 0, 0.3, 0)
     walletLabel.Text = "Wallet: $" .. player.Wallet
     walletLabel.TextColor3 = Color3.new(1, 1, 1)
     walletLabel.BackgroundTransparency = 1
     walletLabel.Parent = frame
     
     local controlLabel = Instance.new("TextLabel")
-    controlLabel.Size = UDim2.new(1, 0, 0.2, 0)
-    controlLabel.Position = UDim2.new(0, 0, 0.4, 0)
+    controlLabel.Size = UDim2.new(1, 0, 0.3, 0)
+    controlLabel.Position = UDim2.new(0, 0, 0.6, 0)
     controlLabel.Text = "Control: " .. player.ControlVersion
     controlLabel.TextColor3 = Color3.new(1, 1, 1)
     controlLabel.BackgroundTransparency = 1
